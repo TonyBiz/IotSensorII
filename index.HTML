@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+ <html lang="es" dir="ltr">
+  <head>
+      <meta charset="utf-8">
+      <title>Iot 1</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <style>
+          body {
+            background: rgba(26,151,173,1);
+background: -moz-linear-gradient(-45deg, rgba(26,151,173,1) 0%, rgba(12,107,122,1) 14%, rgba(2,84,99,1) 31%, rgba(5,43,107,1) 100%);
+background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(26,151,173,1)), color-stop(14%, rgba(12,107,122,1)), color-stop(31%, rgba(2,84,99,1)), color-stop(100%, rgba(5,43,107,1)));
+background: -webkit-linear-gradient(-45deg, rgba(26,151,173,1) 0%, rgba(12,107,122,1) 14%, rgba(2,84,99,1) 31%, rgba(5,43,107,1) 100%);
+background: -o-linear-gradient(-45deg, rgba(26,151,173,1) 0%, rgba(12,107,122,1) 14%, rgba(2,84,99,1) 31%, rgba(5,43,107,1) 100%);
+background: -ms-linear-gradient(-45deg, rgba(26,151,173,1) 0%, rgba(12,107,122,1) 14%, rgba(2,84,99,1) 31%, rgba(5,43,107,1) 100%);
+background: linear-gradient(135deg, rgba(26,151,173,1) 0%, rgba(12,107,122,1) 14%, rgba(2,84,99,1) 31%, rgba(5,43,107,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1a97ad', endColorstr='#052b6b', GradientType=1 );
+            font-family: Arial;
+            font-size: 18px;
+            text-align: center;
+            margin: 0;
+          }
+          .Whitetext {
+          	color: White;
+          }
+
+       #g1, #g2, #g3 {
+          
+        }
+        
+        p {
+          display: block;
+          width: 500px;
+          margin: 2em auto;
+          text-align: left;
+        }
+
+        .container {
+          width: 100%;
+          height: auto;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          flex-flow: wrap;
+          background-color: rgb(50, 60, 72, 0.5);
+          margin-top: 20px;
+          box-shadow: -11px 15px 10px -2px rgba(0, 0, 0, 0.71);
+          
+        }
+
+        .header {
+          width: 100%;
+          height: 50px;
+          color: white;
+          font-size: 16px;
+          justify-content: center;
+          align-items: center;
+          display: flex;
+        }
+        .m01, .m02, .m03 {
+          width: 30%;
+          height: 200px;
+          box-sizing: border-box;    
+          color: aliceblue;    
+        }
+
+        #macro
+{
+background: rgba(26,151,173,1);
+background: -moz-linear-gradient(-45deg, rgba(26,151,173,1) 0%, rgba(12,107,122,1) 14%, rgba(2,84,99,1) 31%, rgba(5,43,107,1) 100%);
+background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(26,151,173,1)), color-stop(14%, rgba(12,107,122,1)), color-stop(31%, rgba(2,84,99,1)), color-stop(100%, rgba(5,43,107,1)));
+background: -webkit-linear-gradient(-45deg, rgba(26,151,173,1) 0%, rgba(12,107,122,1) 14%, rgba(2,84,99,1) 31%, rgba(5,43,107,1) 100%);
+background: -o-linear-gradient(-45deg, rgba(26,151,173,1) 0%, rgba(12,107,122,1) 14%, rgba(2,84,99,1) 31%, rgba(5,43,107,1) 100%);
+background: -ms-linear-gradient(-45deg, rgba(26,151,173,1) 0%, rgba(12,107,122,1) 14%, rgba(2,84,99,1) 31%, rgba(5,43,107,1) 100%);
+background: linear-gradient(135deg, rgba(26,151,173,1) 0%, rgba(12,107,122,1) 14%, rgba(2,84,99,1) 31%, rgba(5,43,107,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1a97ad', endColorstr='#052b6b', GradientType=1 );
+width: 100%;
+height: 100%;
+z-index: 1;
+position: fixed;
+top: 0;
+left: 0;
+}
+      
+      #login {
+        vertical-align:middle;
+        height: 500px;
+        width: 500px;
+        background-color: rgb(245, 245, 245, .7);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  display: table;
+
+      }
+      #login {
+      z-index: 10;
+      -webkit-box-shadow: -11px 15px 10px -2px rgba(0, 0, 0, 0.71);
+        -moz-box-shadow: -11px 15px 10px -2px rgba(0, 0, 0, 0.71);
+        box-shadow: -11px 15px 10px -2px rgba(0, 0, 0, 0.71);
+       }
+
+        @media screen and (max-width: 1200px){
+          .m01, .m02, .m03 {
+            width: 30%;
+             justify-content: center;
+          align-items: center;
+          }
+        }
+
+        @media screen and (max-width: 600px){
+          .m01, .m02, .m03 {
+            width: 90%;
+          }
+        }
+      </style>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+      <script src="raphael-2.1.4.min.js"></script>
+      <script src="justgage.js"></script>
+  </head>
+  <body>
+          <h1 class="Whitetext"> Monitor de temperaturas</h1>
+
+          <!--status y display son etiquetas que se les puede cambiar el nombre  -->
+          <div class="Whitetext" id="status">Desconectado</div> <br>
+          <div style="text-align:center;padding:1em 0;">  <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=small&timezone=America%2FTijuana" width="100%" height="90" frameborder="0" seamless></iframe> </div><br>
+          <div class="Whitetext" id="display"></div> <br>
+
+         <!-- aquí empieza el contenido de la pagina--> 
+        <!--formulario de inicio de sesion -->
+        <section class="container">
+          <div id="macro">
+            <h1 style="color: azure;">INICIO DE SESION</h1>
+            <div id="login">
+              <h2 style="margin: 40% 0 0 0;">Contraseña: </h2>
+              <input type="password" name="contra" id="contra" style="  position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: 0 0 0 -22%;">
+              <input type="button" value="Submit" onclick="validateForm(); cadenero();" style="  position: absolute;
+            top: 50%;
+            left: 80%;
+            margin: 0 0 0 -15%;">
+              <input type="checkbox" onclick="mostrar()" style="margin: 10% 0 0 -11%">Mostrar contraseña
+              </form>
+            </div>
+          </div>
+          <!-- ...................... -->
+
+  <div class ="container">
+    <div class="header" style="background-color: rgb(0, 255, 255, 0.5);"><h1>M01/S01</h1> </div>      
+    <div id="g1" class="m01"></div>
+    <div class="m01">
+      </br> </br></br> </br>
+      <button onclick="command('M01/S01/L1')" type="button">Encender Sensor Superior</button>
+      <button onclick="command('M01/S01/L0')" type="button">Apagar Sensor Superior</button>
+    </div>
+    <div class="m01"> <br>Estado Botón 1</br> </br>
+      <img src="" id="btn1" style="width: 80px; height: 80px;">
+    </div>
+  </div>    
+
+<div class="container">
+      <div class="header" style="background-color: rgb(96, 157, 159, 0.5);">
+        <h1>M01/S02</h1>
+      </div>
+  <div id="g2" alt="Dispositivo desconectado" class="m02"></div><br>
+  <div class="m02">
+    </br> </br></br> </br>
+      <button onclick="command('M01/S02/L1')" type="button">Enender Sensor Medio</button><br>
+      <button onclick="command('M01/S02/L0')" type="button">Apagar Sensor Medio</button><br>
+</div>
+  <div class="m02"> <br>Estado Botón 2 </br></br>
+    <img src="" id="btn2" style="width: 80px; height: 80px;">
+  </div>
+</div>
+
+<div class="container">
+      <div class="header" style="background-color: rgb(143, 188, 143, 0.5);">
+        <h1>M01/S03</h1>
+      </div>
+
+  <div id="g3" class="m03"></div><br>
+  <div class="m03">
+    </br> </br></br> </br>
+    <button onclick="command('M01/S03/L1')" type="button">Encender Inferior</button><br>
+    <button onclick="command('M01/S03/L0')" type="button">Apagar Sensor Medio</button><br>
+  </div>
+  <div class="m03"> <br>Estado Botón 3 </br> </br>
+    <img src="" id="btn3" style="width: 80px; height: 80px;">
+  </div>
+</div>
+    
+        <!-- aquí termina el contenido de la página-->
+          <script type="text/javascript">
+          var startTime1;
+            var startTime2;
+            var startTime3;
+           
+           
+           function validateForm() {
+              var x = document.getElementById("contra").value;
+              if (x == "") {
+                alert("Debe ingresar una contraseña");
+                return false;
+              }
+            }
+
+            // verificar contrase;a para tipo de usuario
+            function cadenero() {
+              var usr = document.getElementById("contra").value;
+              var formMain = document.getElementById("login");
+              var fondo = document.getElementById("macro");
+              var ledDisplay = document.getElementsByClassName("button");
+              if (usr === "tuny") {
+                //ocultar el formulario
+                formMain.style.display = 'none';
+                fondo.style.display = 'none';
+                var i;
+
+                for (i = 0; i < ledDisplay.length; i++) {
+                  ledDisplay[i].style.display = 'inline-block';
+                }
+              }
+              else if (usr === "antonio") {
+                formMain.style.display = 'none';
+                fondo.style.display = 'none';
+              }
+
+            }
+
+            //Mostrar contraseña 
+            function mostrar() {
+              var x = document.getElementById("contra");
+              if (x.type === "password") {
+                x.type = "text";
+              } else {
+                x.type = "password";
+              }
+            }
+
+            $("button").on("click", function () {
+              $("button").removeClass("selected");
+              $(this).addClass("selected");
+            });
+
+                var clientId = 'ESP8266Client-' + Math.floor((Math.random() * 1000000) + 1);
+                client = new Paho.MQTT.Client("tailor.cloudmqtt.com", 35179, clientId);
+                client.onConnectionLost = onConnectionLost;
+                client.onMessageArrived = onMessageArrived;
+
+                var options = {
+                  useSSL: true,
+                  userName: "cdbxmtzn",
+                  password: "1o_Xdr2qM41E",
+                  onSuccess:onConnect,
+                  onFailure:doFail
+                }
+
+                var g1,g2,g3;
+
+                var g1 = new JustGage({
+                   id: "g1",
+                   value: null,
+                   min: -30,
+                   max: 50,
+                   title: "Piso Superior",
+                   label: "°C"
+
+                 });
+
+                 var g2 = new JustGage({
+                    id: "g2",
+                    value: null,
+                    min: -30,
+                    max: 50,
+                    title: "Piso Medio",
+                    label: "°C"
+                  });
+
+                  var g3 = new JustGage({
+                    id: "g3",
+                    value: null,
+                    min: -30,
+                    max: 50,
+                    title: "Piso Inferior",
+                    label: "°C"
+                  });
+                  var segundero1 = 0;
+                  var segundero2 = 0;
+                  var segundero3 = 0;
+                client.connect(options);
+
+                function onConnect() {
+                  console.log("Conexión exitosa!!!");
+                  <!-- # es la etiqueta que esta arriba -->
+                  $("#status").html("Conexión Establecida, topico salida");
+                  client.subscribe("salida");
+                  
+                }
+                 <!--Tomar atencion a la documentacion de manejo de texto a numero  -->
+                function onMessageArrived(message) {
+                  ++segundero1;
+                  ++segundero2;
+                  ++segundero3;
+
+                  var mercsensor = "";
+                  var cadena = "";
+                  var onOff = "";
+                  var temp  = "";
+                  var img = "";
+                  
+                  
+                 
+                      cadena = message.payloadString;
+
+                      <!--console.log("Un mensaje ha llegado:"+ message.payloadString);Envia el valor recibido a la consola  -->
+                      $("#display").html(message.payloadString);<!--Envia el valor recibido a la etiqueta Display  -->
+                        
+                      mercsensor = cadena.substr(0, 7);
+                      temp = cadena.substring(12);
+                      estadoBtn = message.payloadString.substr(9, 1);
+
+                      if (estadoBtn === "0") {
+                         imgbtn = "btnOn.jpg";
+                      }
+                      else if(estadoBtn === "1") {
+                         imgbtn = "btnOff.jpg";
+                      }
+                      
+
+                      if (mercsensor === "M01/S01") {
+                        console.log("Envio de sensor Segundo piso:" + message.payloadString );
+                        g1.refresh(parseInt(message.payloadString.substr(12)));
+                        document.getElementById('btn1').src = imgbtn;
+                        segundero1=0;
+
+                      } else if (mercsensor === "M01/S02") {
+                             console.log("Envio de sensor X:" + message.payloadString);
+                             g2.refresh(parseInt(message.payloadString.substr(12)));
+                             document.getElementById('btn2').src = imgbtn; 
+                             segundero2=0;                              
+                      } else if (mercsensor === "M01/S03") {
+                            console.log("Envio de sensor Primer piso xx:" + message.payloadString);
+                            g3.refresh(parseInt(message.payloadString.substr(12)));
+                            document.getElementById('btn3').src = imgbtn;
+                            segundero3=0;
+                                                              
+                      }
+                  
+                  /*detectar si se desconectó un dispositivo*/
+                      if (segundero1 > 4) {
+                    g1.refresh();
+                    document.getElementById('btn1').src = "descarga.png";
+                  }
+                      if (segundero2 > 4)
+                      {
+                        g2.refresh();
+                        document.getElementById('btn2').src = "descarga.png";
+                      }
+                      
+                      if (segundero3 > 4) {
+                    g3.refresh();   
+                    document.getElementById('btn3').src = "descarga.png";
+                  }
+                  //---------------------------------//    
+                      }
+                      
+                      
+                      
+
+                     //Evaluamos si el objeto no ha recibido un valor
+                     //es decir esta desconectado o se perdió la conexión
+                     //y envia una imagen para hacerlo saber.
+                      if(g1.value==undefined){
+                           document.getElementById('btn1').src = "descarga.png";
+                      }
+                      if (g2.value == undefined) {
+                           document.getElementById('btn2').src = "descarga.png";
+                      }
+                      if (g3.value == undefined) {
+                           document.getElementById('btn3').src = "descarga.png";
+                      }
+
+                      /*En estas condicionales valoramos que ningun dispositivo
+                      este desconectado*/
+                      
+                      
+                  function doFail(e){
+                  console.log(e);
+                  
+                }
+
+                function onConnectionLost(responseObject) {
+                  if (responseObject.errorCode !== 0) {
+                    console.log("onConnectionLost:"+responseObject.errorMessage);
+                  }
+                }
+                
+                
+                      
+                     
+
+
+                function command(value){
+                  <!--SW0101  identificador de switch 01 encendido 01-->
+                  <!--SW0100  identificador de switch 01 encendido 00-->
+                  console.log("Un mensaje se ha enviado A:"+ value);
+                  message = new Paho.MQTT.Message(value);   <!--manda mensajea a servidor MQTT  -->
+                  message.destinationName = "entrada";
+                  client.send(message);    <!-- Aquí se envia el mensaje como topico de salida -->
+                  
+                }
+
+                      
+            </script>
+  </body>
+</html>
